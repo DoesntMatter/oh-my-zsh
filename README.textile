@@ -37,6 +37,14 @@ h3. The manual way
 
 4. Start / restart zsh (open a new terminal is easy enough...)
 
+h3. The .zshrc file
+
+I prefer using a symbolic link for the @.zshrc@ file. This makes it easier to maintain your changes via git.
+For the sake of versatility you should use the custom folder.
+
+@mv ~/.zshrc ~/.oh-my-zsh/custom/templates/zshrc.zsh-template@
+@ln -s ~/.oh-my-zsh/custom/templates/zshrc.zsh-template ~/.zshrc@
+
 h3. Problems?
 
 You _might_ need to modify your PATH in ~/.zshrc if you're not able to find some commands after switching to _Oh My Zsh_.
