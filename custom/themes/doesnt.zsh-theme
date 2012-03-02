@@ -1,13 +1,13 @@
 # -----------------------------------------------------------------------------
-#          FILE: smt.zsh-theme
-#   DESCRIPTION: oh-my-zsh theme file, based on dogenpunk by Matthew Nelson.
-#        AUTHOR: Stephen Tudor (stephen@tudorstudio.com
+#          FILE: doesnt.zsh-theme
+#   DESCRIPTION: oh-my-zsh theme file, based on smt by Stephen Tudo and
+#                dogenpunk by Matthew Nelson
+#        AUTHOR: DoesntMatter
 #       VERSION: 0.1
 #    SCREENSHOT: coming soon
 # -----------------------------------------------------------------------------
 
 MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
-local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%} "
 
 ZSH_THEME_GIT_PROMPT_PREFIX="|"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -23,13 +23,13 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
 # Format for git_prompt_long_sha() and git_prompt_short_sha()
-ZSH_THEME_GIT_PROMPT_SHA_BEFORE="➤ %{$fg_bold[yellow]%}"
+ZSH_THEME_GIT_PROMPT_SHA_BEFORE="➤  %{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$reset_color%}"
 
 function prompt_char() {
   git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%}±%{$reset_color%}" && return
   hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[red]%}☿%{$reset_color%}" && return
-  echo "%{$fg[cyan]%}◯%{$reset_color%}"
+  echo "%{$fg[cyan]%}¬%{$reset_color%}"
 }
 
 # Colors vary depending on time lapsed.
@@ -40,6 +40,7 @@ ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 
 # Determine the time since last commit. If branch is clean,
 # use a neutral color, otherwise colors will vary according to time.
+# This should be move to plugin or lib section
 function git_time_since_commit() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         # Only proceed if there is actually a commit.
@@ -85,7 +86,6 @@ function git_time_since_commit() {
 }
 
 PROMPT='
-%{$fg[blue]%}%m%{$reset_color%} 福 %{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_short_sha)$(git_prompt_info)
-%{$fg[red]%}%!%{$reset_color%} $(prompt_char) : '
-
-RPROMPT='${return_status}$(git_time_since_commit)$(git_prompt_status)%{$reset_color%}'
+%{$fg[blue]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%} %{$fg[cyan]%}%~ %{$reset_color%}\
+$(git_prompt_short_sha)$(git_prompt_info) $(git_time_since_commit)$(git_prompt_status)%{$reset_color%}
+%{$fg[red]%}%!%{$reset_color%} $(prompt_char): '
