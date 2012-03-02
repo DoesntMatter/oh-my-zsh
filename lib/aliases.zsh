@@ -14,7 +14,7 @@ alias _='sudo'
 # Show history
 alias history='fc -l 1'
 
-# List direcory contents
+# List directory contents
 alias lsa='ls -lah'
 alias l='ls -la'
 alias ll='ls -l'
