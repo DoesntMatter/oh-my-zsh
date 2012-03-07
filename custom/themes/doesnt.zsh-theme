@@ -26,6 +26,9 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$reset_color%}"
 
+# Format svn_repo_behind()
+ZSH_THEME_SVN_PROMPT_BEHIND="%{$fg_bold[red]%}!%{$reset_color%}"
+
 # Colors vary depending on time lapsed.
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT="%{$fg[green]%}"
 ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
@@ -51,6 +54,7 @@ PROMPT='
 PROMPT='
 [%{$fg[white]%}%*%{$reset_color%}] \
 %{$fg[cyan]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %{$fg[magenta]%}%~ %{$reset_color%}\
+➤  %{$fg_bold[yellow]%}$(svn_prompt_rev)%{$reset_color%}|$(svn_prompt_branch)$(svn_repo_behind)
 %{$fg[red]%}%!%{$reset_color%} $(get_prompt_char): '
 ;;
 *)
