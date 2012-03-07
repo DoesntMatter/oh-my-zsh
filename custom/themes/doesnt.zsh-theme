@@ -39,7 +39,7 @@ ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 
 PROMPT='
-[%{$fg[white]%}%t%{$reset_color%}] \
+[%{$fg[white]%}%*%{$reset_color%}] \
 %{$fg[cyan]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %{$fg[magenta]%}%~ %{$reset_color%}\
 $(git_prompt_short_sha)$(git_prompt_info) $(git_time_since_commit)$(git_prompt_status)%{$reset_color%}
 %{$fg[red]%}%!%{$reset_color%} $(prompt_char): '
