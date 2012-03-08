@@ -5,9 +5,39 @@ function get_vcs() {
   return
 }
 
+function get_prompt() {
+  VCS=$(get_vcs)
+  case $VCS in
+  "git")
+  echo "$ZSH_THEME_VCS_PROMPT_GIT"
+  ;;
+  "hg")
+  echo "$ZSH_THEME_VCS_PROMPT_HG"
+  ;;
+  "svn")
+  echo "$ZSH_THEME_VCS_PROMPT_SVN"
+  ;;
+  *)
+  ;;
+  esac
+  return
+}
+
 function get_prompt_char() {
-  git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%}±%{$reset_color%}" && return
-  hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[red]%}☿%{$reset_color%}" && return
-  svn info >/dev/null 2>/dev/null && echo "%{$fg_bold[red]%}±%{$reset_color%}" && return
-  echo "%{$fg[cyan]%}¬%{$reset_color%}" && return
+  VCS=$(get_vcs)
+  case $VCS in
+  "git")
+  echo "%{$fg[green]%}±%{$reset_color%}"
+  ;;
+  "hg")
+  echo "%{$fg_bold[red]%}☿%{$reset_color%}"
+  ;;
+  "svn")
+  echo "%{$fg_bold[red]%}±%{$reset_color%}"
+  ;;
+  *)
+  echo "%{$fg[cyan]%}¬%{$reset_color%}"
+  ;;
+  esac
+  return
 }
