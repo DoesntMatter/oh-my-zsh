@@ -1,6 +1,6 @@
 function get_vcs() {
   git branch >/dev/null 2>/dev/null && echo "git" && return
-  svn info >/dev/null 2>/dev/null && echo "svn" && return
+  ls .svn >/dev/null 2>/dev/null && echo "svn" && return
   return
 }
 
