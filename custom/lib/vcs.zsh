@@ -9,13 +9,13 @@ function get_prompt() {
   VCS=$(get_vcs)
   case $VCS in
   "git")
-  echo "$ZSH_THEME_VCS_PROMPT_GIT"
+   echo "➤  $(git_prompt_short_sha)$(git_prompt_info) $(git_time_since_commit)$(git_prompt_status)%{$reset_color%}"
   ;;
   "hg")
-  echo "$ZSH_THEME_VCS_PROMPT_HG"
+  echo ""
   ;;
   "svn")
-  echo "$ZSH_THEME_VCS_PROMPT_SVN"
+  echo "➤  %{$fg_bold[yellow]%}$(svn_prompt_rev)%{$reset_color%}|$(svn_prompt_branch)$(svn_repo_behind)"
   ;;
   *)
   ;;

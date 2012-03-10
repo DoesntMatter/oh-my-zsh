@@ -35,11 +35,6 @@ ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 
-# Format prompt appearance
-ZSH_THEME_VCS_PROMPT_GIT="➤  $(git_prompt_short_sha)$(git_prompt_info) $(git_time_since_commit)$(git_prompt_status)%{$reset_color%}"
-ZSH_THEME_VCS_PROMPT_HG=""
-ZSH_THEME_VCS_PROMPT_SVN="➤  %{$fg_bold[yellow]%}$(svn_prompt_rev)%{$reset_color%}|$(svn_prompt_branch)$(svn_repo_behind)"
-
 PROMPT='
 [%{$fg[white]%}%*%{$reset_color%}] \
 %{$fg[cyan]%}%n%{$reset_color%}@%{$fg[cyan]%}%m%{$reset_color%} %{$fg[magenta]%}%~ %{$reset_color%}\
